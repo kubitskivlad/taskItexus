@@ -15,7 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let sceneCoordinator = SceneCoordinator(window: window!)
+        
+        let entryViewModel = EntryViewModel(coordinator: sceneCoordinator)
+        let firstScene = Scene.entry(entryViewModel)
+        sceneCoordinator.transition(to: firstScene, type: .root)
+        
         return true
     }
 
